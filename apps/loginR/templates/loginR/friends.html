@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h2> Welcome , {{ user.alias }}!</h2>
+    <a href="/logout">Logout</a>
+
+   <h3>All friends:</h3>
+    <table>
+       <thead>
+            <tr>
+                <td>Alias</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% if friends %}
+            {% for friend in friends %}
+            <tr>
+                <td>{{ friend.alias }}</td>
+                <td><a href="{% url "remove_friend" id=friend.id %}">Remove Friend</a>
+                    <td><a href="{% url "profile" id=friend.id %}">View Profile</a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <p>You have no current friends.</p>
+        {% endif %}
+        </tbody>
+    </table>
+    <h3>Other users not on friends list:</h3>
+
+    {% for person in people %}
+        <td><a href="{% url "profile" id=person.id %}">{{ person.alias }}</a>
+            <a href="{% url "add_friend" id=person.id %}">Add Friend</a>
+    {% endfor %}
+                
+                
+
+    </body>
+</html>
+    
+    
+    

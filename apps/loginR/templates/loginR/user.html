@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>{{ friend.name }}'s Profile</h1>
+    <h3>Alias:{{ friend.alias }}</h3>
+    <h3>Email Address:{{ friend.email }}</h3>
+
+    <a href="/logout">Logout</a>
+    <a href="{% url "dashboard" %}">Home</a>
+    </body>
+</html>
